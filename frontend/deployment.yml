@@ -47,11 +47,13 @@ metadata:
     nginx.ingress.kubernetes.io/session-cookie-expires: "172800"
     nginx.ingress.kubernetes.io/session-cookie-max-age: "172800"
     cert-manager.io/cluster-issuer: letsencrypt-prod
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   ingressClassName: nginx
   tls:
   - hosts:
     - mevvit.com
+    - www.mevvit.com
     secretName: mevvit-tls
   rules:
   - host: mevvit.com
@@ -64,3 +66,11 @@ spec:
             name: mevvit-frontend-service
             port:
               number: 3000
+  - host: www.mevvit.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        redirect:
+          permanent: true
+          to: https://mevvit.com        
