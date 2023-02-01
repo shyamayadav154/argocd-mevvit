@@ -46,14 +46,16 @@ metadata:
     # nginx.ingress.kubernetes.io/session-cookie-name: "route"
     # nginx.ingress.kubernetes.io/session-cookie-expires: "172800"
     # nginx.ingress.kubernetes.io/session-cookie-max-age: "172800"
+    # cert-manager.io/cluster-issuer: letsencrypt-prod
     nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
-    cert-manager.io/cluster-issuer: letsencrypt-prod
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+
 spec:
   ingressClassName: nginx
   tls:
   - hosts:
     - dry.mevvit.com
-    secretName: dry-mevvit-tls
+    secretName: mevvit-frontend-tls
   rules:
   - host: dry.mevvit.com
     http:
