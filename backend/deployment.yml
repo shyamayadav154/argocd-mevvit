@@ -67,10 +67,10 @@ spec:
             name: mevvit-backend-service
             port:
               number: 8000
-      - path: /og
-        pathType: Prefix
-        backend:
-          service:
-            name: og-image-service
-            port:
-              number: 4000        
+      # - path: /og
+      #   pathType: Prefix
+      #   backend:
+      #     service:
+      #       name: og-image-service
+      #       port:
+      #         number: 4000        
