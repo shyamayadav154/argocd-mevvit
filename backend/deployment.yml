@@ -50,9 +50,9 @@ metadata:
     nginx.ingress.kubernetes.io/session-cookie-expires: "172800"
     nginx.ingress.kubernetes.io/session-cookie-max-age: "172800"
     cert-manager.io/cluster-issuer: letsencrypt-prod
-    nginx.ingress.kubernetes.io/configuration-snippet: |
+    nginx.org/server-snippets: |
       location /static {
-       autoindex on;
+        autoindex on;
         alias /app/static;
       }
 spec:
