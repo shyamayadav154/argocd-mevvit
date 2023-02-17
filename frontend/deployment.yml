@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: mevvit-frontend
-          image: appwharf/mevfinal:sha-1748d7a
+          image: appwharf/mevfinal:sha-6f16a11
           imagePullPolicy: Always
           ports:
             - containerPort: 3000
