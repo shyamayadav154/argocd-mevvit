@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: mevvit-backend
-        image: appwharf/mrbackend:sha-8fef264
+        image: appwharf/mrbackend:sha-fbfb25d
         imagePullPolicy: Always
         ports:
         - containerPort: 8000
