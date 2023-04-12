@@ -48,6 +48,10 @@ metadata:
     nginx.ingress.kubernetes.io/session-cookie-max-age: "172800"
     nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
     cert-manager.io/cluster-issuer: letsencrypt-prod
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+     if ($host = 'www.mevvit.com' ) {
+      rewrite ^ https://mevvit.com$request_uri permanent;
+     }
 spec:
   ingressClassName: nginx
   tls:
