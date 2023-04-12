@@ -53,9 +53,20 @@ spec:
   tls:
   - hosts:
     - www.mevvit.com
+    - mevvit.com
     secretName: mevvit-tls
   rules:
   - host: www.mevvit.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: mevvit-frontend-service
+            port:
+              number: 3000
+  - host: mevvit.com
     http:
       paths:
       - path: /
