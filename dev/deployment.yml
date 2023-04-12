@@ -55,10 +55,10 @@ spec:
   ingressClassName: nginx
   tls:
   - hosts:
-    - dry.mevvit.com
+    - www.dry.mevvit.com
     secretName: mevvit-frontend-tls
   rules:
-  - host: dry.mevvit.com
+  - host: www.dry.mevvit.com
     http:
       paths:
       - path: /
