@@ -52,10 +52,10 @@ spec:
   ingressClassName: nginx
   tls:
   - hosts:
-    - mevvit.com
+    - www.mevvit.com
     secretName: mevvit-tls
   rules:
-  - host: mevvit.com
+  - host: www.mevvit.com
     http:
       paths:
       - path: /
