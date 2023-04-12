@@ -40,14 +40,14 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: ingress-mevvit
+  name: ingress-dry-mevvit
   annotations:
     # nginx.ingress.kubernetes.io/affinity: "cookie"
     # nginx.ingress.kubernetes.io/session-cookie-name: "route"
     # nginx.ingress.kubernetes.io/session-cookie-expires: "172800"
     # nginx.ingress.kubernetes.io/session-cookie-max-age: "172800"
     # cert-manager.io/cluster-issuer: letsencrypt-prod
-    nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
+    # nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
     nginx.ingress.kubernetes.io/proxy-body-size: 10m
 
@@ -55,10 +55,10 @@ spec:
   ingressClassName: nginx
   tls:
   - hosts:
-    - www.dry.mevvit.com
+    - dry.mevvit.com
     secretName: mevvit-frontend-tls
   rules:
-  - host: www.dry.mevvit.com
+  - host: dry.mevvit.com
     http:
       paths:
       - path: /
