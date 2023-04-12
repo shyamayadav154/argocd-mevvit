@@ -56,11 +56,11 @@ spec:
   ingressClassName: nginx
   tls:
   - hosts:
-    - www.mevvit.com
     - mevvit.com
+    - www.mevvit.com
     secretName: mevvit-tls
   rules:
-  - host: www.mevvit.com
+  - host: mevvit.com
     http:
       paths:
       - path: /
@@ -70,7 +70,7 @@ spec:
             name: mevvit-frontend-service
             port:
               number: 3000
-  - host: mevvit.com
+  - host: www.mevvit.com
     http:
       paths:
       - path: /
