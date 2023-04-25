@@ -56,7 +56,7 @@ spec:
   tls:
   - hosts:
     - dry.mevvit.com
-    secretName: mevvit-frontend-tls
+    secretName: dry-mevvit-tls
   rules:
   - host: dry.mevvit.com
     http:
