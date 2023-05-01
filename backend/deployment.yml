@@ -4,21 +4,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mevvit-backend-deployment
+  name: jetcv-backend-deployment
   labels:
-    app: mevvit-backend
+    app: jetcv-backend
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: mevvit-backend
+      app: jetcv-backend
   template:
     metadata:
       labels:
-        app: mevvit-backend
+        app: jetcv-backend
     spec:
       containers:
-      - name: mevvit-backend
+      - name: jetcv-backend
         image: appwharf/mrbackend:sha-98fb0e1
         imagePullPolicy: Always
         ports:
@@ -30,10 +30,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: mevvit-backend-service
+  name: jetcv-backend-service
 spec:
   selector:
-    app: mevvit-backend
+    app: jetcv-backend
   ports:
     - protocol: TCP
       port: 8000
@@ -43,7 +43,7 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: ingress-mevvit-backend
+  name: ingress-jetcv-backend
   annotations:
     nginx.ingress.kubernetes.io/affinity: "cookie"
     nginx.ingress.kubernetes.io/session-cookie-name: "route"
@@ -54,17 +54,17 @@ spec:
   ingressClassName: nginx
   tls:
   - hosts:
-    - api.mevvit.com
-    secretName: mevvit-backend-tls
+    - api.jetcv.com
+    secretName: jetcv-backend-tls
   rules:
-  - host: api.mevvit.com
+  - host: api.jetcv.com
     http:
       paths:
       - path: /
         pathType: Prefix
         backend:
           service:
-            name: mevvit-backend-service
+            name: jetcv-backend-service
             port:
               number: 8000
       # - path: /og

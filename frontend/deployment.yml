@@ -3,21 +3,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mevvit-deployment-frontend
+  name: jetcv-deployment-frontend
   labels:
-    app: mevvit-frontend
+    app: jetcv-frontend
 spec:
   replicas: 6
   selector:
     matchLabels:
-      app: mevvit-frontend
+      app: jetcv-frontend
   template:
     metadata:
       labels:
-        app: mevvit-frontend
+        app: jetcv-frontend
     spec:
       containers:
-        - name: mevvit-frontend
+        - name: jetcv-frontend
           image: appwharf/mevfinal:sha-ce6e58e
           imagePullPolicy: Always
           ports:
@@ -27,10 +27,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: mevvit-frontend-service
+  name: jetcv-frontend-service
 spec:
   selector:
-    app: mevvit-frontend
+    app: jetcv-frontend
   ports:
     - protocol: TCP
       port: 3000
@@ -40,7 +40,7 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: ingress-mevvit
+  name: ingress-jetcv
   annotations:
     nginx.ingress.kubernetes.io/affinity: "cookie"
     nginx.ingress.kubernetes.io/session-cookie-name: "route"
@@ -49,34 +49,34 @@ metadata:
     nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
     cert-manager.io/cluster-issuer: letsencrypt-prod
     nginx.ingress.kubernetes.io/configuration-snippet: |
-     if ($host = 'www.mevvit.com' ) {
-      rewrite ^ https://mevvit.com$request_uri permanent;
+     if ($host = 'www.jetcv.co' ) {
+      rewrite ^ https://jetcv.co$request_uri permanent;
      }
 spec:
   ingressClassName: nginx
   tls:
   - hosts:
-    - mevvit.com
-    - www.mevvit.com
-    secretName: mevvit-tls
+    - jetcv.co
+    - www.jetcv.co
+    secretName: jetcv-tls
   rules:
-  - host: mevvit.com
+  - host: jetcv.co
     http:
       paths:
       - path: /
         pathType: Prefix
         backend:
           service:
-            name: mevvit-frontend-service
+            name: jetcv-frontend-service
             port:
               number: 3000
-  - host: www.mevvit.com
+  - host: www.jetcv.co
     http:
       paths:
       - path: /
         pathType: Prefix
         backend:
           service:
-            name: mevvit-frontend-service
+            name: jetcv-frontend-service
             port:
               number: 3000
