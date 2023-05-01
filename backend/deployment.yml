@@ -54,10 +54,10 @@ spec:
   ingressClassName: nginx
   tls:
   - hosts:
-    - api.jetcv.com
+    - api.jetcv.co
     secretName: jetcv-backend-tls
   rules:
-  - host: api.jetcv.com
+  - host: api.jetcv.co
     http:
       paths:
       - path: /
