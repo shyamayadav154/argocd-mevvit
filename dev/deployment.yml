@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: dry-jetcv-frontend
-          image: appwharf/mevfinal:sha-8aa31aa
+          image: appwharf/mevfinal:sha-2f7247d
           imagePullPolicy: Always
           ports:
             - containerPort: 3000
