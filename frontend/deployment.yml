@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: jetcv-frontend
-          image: appwharf/mevfinal:sha-53014fd
+          image: appwharf/mevfinal:sha-e29c91e
           imagePullPolicy: Always
           ports:
             - containerPort: 3000
